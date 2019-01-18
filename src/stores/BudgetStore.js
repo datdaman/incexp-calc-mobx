@@ -23,6 +23,8 @@ class BudgetStore {
       id,
       amount
     })
+    this.description = ''
+    this.amount = ''
   }
   
   @action
@@ -39,6 +41,18 @@ class BudgetStore {
     }
   }
 
+  @action
+  deleteItem = (id, addType) => {
+    this.data[addType] = this.data[addType].filter((data, index) => {
+      
+          return this.data[addType][index].id !== id
+      
+    })
+  }
+
+  @computed get totalBudget(){
+    return this.totalIncomes - this.totalExpenses
+  }
   @computed get totalIncomes(){
     let total = this.data["incomes"].reduce((sum, curr) => {
       return sum += curr.amount
@@ -53,6 +67,9 @@ class BudgetStore {
     return total
   }
 
+  formatNumber(val){
+    return val.toLocaleString()
+  }
 }
 
 const store = window.store = new BudgetStore();
@@ -60,5 +77,5 @@ const store = window.store = new BudgetStore();
 export default store;
 
 autorun( () => {
-  console.log(store.description)
+  
 })

@@ -107,6 +107,33 @@ $expenseColor: red;
 
   }
 
-  
+  .item {
+    display: flex !important;
+    flex-direction: row;
+
+    .description {
+      flex: 1;
+    }
+
+    .right{
+      display: flex;
+      justify-content: flex-end;
+
+      .delete-btn {
+        font-size: 22px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: none;
+      }
+    }
+
+  }
+
+  .item:hover{
+    .delete-btn {
+      display: block;
+    }
+  }
 }
 

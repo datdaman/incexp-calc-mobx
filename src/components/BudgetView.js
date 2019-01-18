@@ -3,10 +3,10 @@ import BudgetHeader from './BudgetHeader';
 // import BudgetList from './BudgetList';
 
 
-export default function BudgetView() {
+export default function BudgetView(props) {
   return (
     <div>
-      <BudgetHeader/>
+      <BudgetHeader store={props.store}/>
       {/* <BudgetList/> */}
     </div>
   )
